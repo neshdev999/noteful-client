@@ -2,13 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Note from './Note';
-import { parseISO } from 'date-fns' 
+// import { parseISO } from 'date-fns'; 
 
 describe(`Note component`, () => {
   const props = {
     id: 'a',
     name: 'test-class-name',
-    modified: new Date(parseISO(15,1,2019)),
+    modified: new Date('2019-01-03T00:00:00.000Z'),
   }
 
   it('renders a .Note by default', () => {

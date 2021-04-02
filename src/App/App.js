@@ -6,9 +6,10 @@ import NotePageNav from '../NotePageNav/NotePageNav';
 import NoteListMain from '../NoteListMain/NoteListMain';
 import NotePageMain from '../NotePageMain/NotePageMain';
 import dummyStore from '../dummy-store';
-import {getNotesForFolder, findNote, findFolder} from '../notes-helper';
+
 import './App.css';
 import NoteContext from '../NoteContext';
+import config from '../config';
 
 class App extends Component {
     state = {
@@ -18,11 +19,34 @@ class App extends Component {
 
     componentDidMount() {
         // fake date loading from API call
-        setTimeout(() => this.setState(dummyStore), 600);
+        // setTimeout(() => this.setState(dummyStore), 600);
+        Promise.all([
+            fetch(`${config.API_ENDPOINT}/notes`),
+            fetch(`${config.API_ENDPOINT}/folders`)
+        ])
+            .then(([notesRes, foldersRes]) => {
+                if (!notesRes.ok)
+                    return notesRes.json().then(e => Promise.reject(e));
+                if (!foldersRes.ok)
+                    return foldersRes.json().then(e => Promise.reject(e));
+
+                return Promise.all([notesRes.json(), foldersRes.json()]);
+            })
+            .then(([notes, folders]) => {
+                this.setState({notes, folders});
+            })
+            .catch(error => {
+                console.error({error});
+            });
     }
 
+    handleDeleteNote = noteId => {
+        this.setState({
+            notes: this.state.notes.filter(note => note.id !== noteId)
+        });
+    };
+
     renderNavRoutes() {
-        const {notes, folders} = this.state;
         return (
             <>
                 {['/', '/folder/:folderId'].map(path => (
@@ -44,7 +68,6 @@ class App extends Component {
     }
 
     renderMainRoutes() {
-        const {notes, folders} = this.state;
         return (
             <>
                 {['/', '/folder/:folderId'].map(path => (
@@ -66,7 +89,8 @@ class App extends Component {
     render() {
         const contextValue = {
             notes: this.state.notes,
-            folders: this.state.folders
+            folders: this.state.folders,
+            deleteNote: this.handleDeleteNote
         }
         return (
             <NoteContext.Provider value={contextValue}>

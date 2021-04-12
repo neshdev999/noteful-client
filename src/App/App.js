@@ -11,12 +11,15 @@ import dummyStore from '../dummy-store';
 import config from '../config';
 import './App.css';
 import NoteContext from '../NoteContext';
+import AppError from '../AppError/AppError';
 
 
 class App extends Component {
     state = {
         notes: [],
-        folders: []
+        folders: [],
+        hasError: false,
+        errorMessage: ""
     };
 
     componentDidMount() {
@@ -39,7 +42,17 @@ class App extends Component {
             })
             .catch(error => {
                 console.error({error});
+                this.setState({
+                    hasError: true,
+                    errorMessage: {error}                     
+                }, 
+                ()=>{
+                    throw new Error('An error has occured in Buggy component!' + this.state.errorMessage.error);
+                });
             });
+  
+                // throw new Error("An error has occured in Buggy component!");
+            
     }
 
 
@@ -97,6 +110,7 @@ class App extends Component {
                         key={path}
                         path={path}
                         component={NoteListMain}
+                        // component={NoteDashMain}
                     />
                 ))}
                 <Route
@@ -133,7 +147,9 @@ class App extends Component {
                             <FontAwesomeIcon icon="check-double" />
                         </h1>
                     </header>
-                    <main className="App__main">{this.renderMainRoutes()}</main>
+                    {/* <AppError> */}
+                        <main className="App__main">{this.renderMainRoutes()}</main>
+                    {/* </AppError> */}
                 </div>
             </NoteContext.Provider>
         );

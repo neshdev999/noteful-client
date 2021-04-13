@@ -39,8 +39,15 @@ class AddNote extends Component{
             this.props.history.push(`/folder/${note.folderId}`);
         })
         .catch(error => {
-            console.error({ error })
-        })
+            console.error({ error });
+            this.setState({
+                hasError: true,
+                errorText: {error}                     
+            }, 
+            ()=>{
+                throw new Error('A server error has occured while adding new note 🙃.\n Details: ' + this.state.errorText.error);
+            });
+        });
     }
 
     render(){

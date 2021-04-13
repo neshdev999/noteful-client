@@ -19,7 +19,7 @@ class App extends Component {
         notes: [],
         folders: [],
         hasError: false,
-        errorMessage: ""
+        errorText: ""
     };
 
     componentDidMount() {
@@ -47,7 +47,7 @@ class App extends Component {
                     errorMessage: {error}                     
                 }, 
                 ()=>{
-                    throw new Error('An error has occured in Buggy component!' + this.state.errorMessage.error);
+                    throw new Error('A server error has occured 🙃!' + this.state.errorMessage.error);
                 });
             });
   

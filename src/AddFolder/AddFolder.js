@@ -21,7 +21,8 @@ class AddFolder extends Component{
             fname : "",
             errorMessage : {
                 textHere : "You must enter a folder title"
-            }
+            },
+            buttonEnable: false
         };
     }
 
@@ -45,7 +46,8 @@ class AddFolder extends Component{
             this.setState({
                 errorMessage:{
                     textHere: newText
-                }
+                },
+                buttonEnable : true
             });
         }
     }
@@ -55,9 +57,6 @@ class AddFolder extends Component{
         this.setState({fname: event.target.value});
         this.validateForm(event.target.value);
     }
-
-    
-
 
     handleSubmit = e => {
         e.preventDefault();
@@ -97,8 +96,8 @@ class AddFolder extends Component{
     }
 
     render(){
-        const { fname } = this.state;
-        const isEnabled = fname.length > 3;
+       // const { fname } = this.state;
+        const isEnabled = this.state.buttonEnable;
         const errorMessage = this.state.errorMessage;
         return(
             <section className='AddFolder'>

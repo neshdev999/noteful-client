@@ -6,6 +6,7 @@ import CircleButton from '../CircleButton/CircleButton';
 import './NoteListMain.css';
 import NoteContext from '../NoteContext';
 import { getNotesForFolder } from '../notes-helper';
+import PropTypes from 'prop-types';
 
 class NoteListMain extends React.Component {
   static defaultProps = {
@@ -57,5 +58,10 @@ class NoteListMain extends React.Component {
   }
   }
 
+  NoteListMain.propTypes = {
+      match : PropTypes.shape({
+          params: PropTypes.string
+      }).isRequired
+  };
 
   export default NoteListMain;

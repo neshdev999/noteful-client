@@ -4,6 +4,7 @@ import NoteContext from '../NoteContext';
 import config from '../config';
 import './AddNote.css';
 import ValidationError from '../ValidationError';
+import PropTypes from 'prop-types';
 
 class AddNote extends Component{
     static defaultProps = {
@@ -262,5 +263,11 @@ class AddNote extends Component{
         )
     }
 }
+
+AddNote.propTypes = {
+    history: PropTypes.shape({
+        push: PropTypes.func.isRequired
+    }).isRequired
+};
 
 export default AddNote;

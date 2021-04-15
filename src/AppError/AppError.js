@@ -1,5 +1,7 @@
 import React from 'react';
 import './AppError.css';
+import PropTypes from 'prop-types';
+
 
 class AppError extends React.Component{
     constructor(props){
@@ -50,6 +52,10 @@ class AppError extends React.Component{
         }
         return this.props.children;
       }
+}
+
+AppError.propTypes = {
+  children: PropTypes.node.isRequired
 }
 
 export default AppError;

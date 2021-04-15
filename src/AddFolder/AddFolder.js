@@ -4,6 +4,7 @@ import NoteContext from '../NoteContext';
 import config from '../config';
 import './AddFolder.css';
 import ValidationError from '../ValidationError';
+import PropTypes from 'prop-types';
 
 class AddFolder extends Component{
 
@@ -120,5 +121,11 @@ class AddFolder extends Component{
         );
     }
 }
+
+AddFolder.propTypes = {
+    history : PropTypes.shape({
+        push: PropTypes.func.isRequired
+    }).isRequired
+};
 
 export default AddFolder;

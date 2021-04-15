@@ -4,6 +4,7 @@ import CircleButton from '../CircleButton/CircleButton';
 import './NotePageNav.css';
 import NoteContext from '../NoteContext';
 import { findFolder, findNote } from '../notes-helper';
+import PropTypes from 'prop-types';
 
 class NotePageNav extends React.Component {
 
@@ -39,5 +40,15 @@ class NotePageNav extends React.Component {
     )
   }
 }
+
+
+NotePageNav.propTypes = {
+  match : PropTypes.shape({
+    params: PropTypes.string
+  }).isRequired,
+  history: PropTypes.shape({
+    goBack: PropTypes.func.isRequired
+  }).isRequired
+};
 
 export default NotePageNav;

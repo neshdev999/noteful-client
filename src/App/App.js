@@ -7,11 +7,11 @@ import NoteListMain from '../NoteListMain/NoteListMain';
 import NotePageMain from '../NotePageMain/NotePageMain';
 import AddNote from '../AddNote/AddNote';
 import AddFolder from '../AddFolder/AddFolder';
-import dummyStore from '../dummy-store';
+// import dummyStore from '../dummy-store';
 import config from '../config';
 import './App.css';
 import NoteContext from '../NoteContext';
-import AppError from '../AppError/AppError';
+
 
 
 class App extends Component {

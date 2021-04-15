@@ -23,8 +23,6 @@ class App extends Component {
     };
 
     componentDidMount() {
-        // fake date loading from API call
-        // setTimeout(() => this.setState(dummyStore), 600);
         Promise.all([
             fetch(`${config.API_ENDPOINT}/notes`),
             fetch(`${config.API_ENDPOINT}/folders`)
@@ -49,10 +47,7 @@ class App extends Component {
                 ()=>{
                     throw new Error('A server error has occured 🙃!' + this.state.errorMessage.error);
                 });
-            });
-  
-                // throw new Error("An error has occured in Buggy component!");
-            
+            });            
     }
 
 
@@ -147,9 +142,7 @@ class App extends Component {
                             <FontAwesomeIcon icon="check-double" />
                         </h1>
                     </header>
-                    {/* <AppError> */}
                         <main className="App__main">{this.renderMainRoutes()}</main>
-                    {/* </AppError> */}
                 </div>
             </NoteContext.Provider>
         );

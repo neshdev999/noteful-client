@@ -43,7 +43,7 @@ class NotePageMain extends React.Component {
 
 NotePageMain.propTypes = {
     match : PropTypes.shape({
-        params: PropTypes.string
+        params: PropTypes.object
     }).isRequired,
     history: PropTypes.shape({
       push: PropTypes.func.isRequired

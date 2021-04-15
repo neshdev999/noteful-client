@@ -59,10 +59,6 @@ class AddNote extends Component{
             });
         } else if (value.length < 3) {
             let newText = "Note name must be at least 3 characters long";
-            // this.setState({
-            //     ...this.state.noteErrorMessage,
-            //     noteNameMessage: newText
-            // });
             const newItems = {
                 ...this.state.noteErrorMessage,
                 noteNameMessage: newText
@@ -96,10 +92,6 @@ class AddNote extends Component{
             });
         } else if (value.length < 10) {
             let newText = "Note content must be 10 characters long";
-            // this.setState({
-            //     ...this.state.noteErrorMessage,
-            //     noteNameMessage: newText
-            // });
             const newItems = {
                 ...this.state.noteErrorMessage,
                 noteContentMessage: newText
@@ -119,33 +111,6 @@ class AddNote extends Component{
             });
         }
     }
-
-
-    // validateNoteContent = (value) =>{
-    //     if (value.trim().length === 0) {
-    //         let contentNewText = 'Note content is required.';
-    //         this.setState({
-    //             noteErrorMessage:{
-    //                 noteContentMessage: contentNewText
-    //             }
-    //         });
-    //     } else if (value.length < 3) {
-    //         let contentNewText = "Note content must be 10 characters long";
-    //         this.setState({
-    //             noteErrorMessage:{
-    //                noteContentMessage: contentNewText
-    //             }
-    //         });           
-    //     } else if(value.length > 3){
-    //         let contentNewText = "You are fine..";
-    //         this.setState({
-    //             noteErrorMessage:{
-    //                 noteContentMessage: contentNewText
-    //             }
-    //         });
-    //     }
-    // }
-
 
     validateFolderType = (value) =>{
         if (value === "") {
@@ -169,8 +134,6 @@ class AddNote extends Component{
             }); 
         } 
     }
-    
-
 
     handleSubmit = e => {
         e.preventDefault();
@@ -214,9 +177,6 @@ class AddNote extends Component{
 
     render(){
         const { folders = [] } = this.context;
-        const { noteName, noteContent, currentFolderID } = this.state;
-        // const isEnabled = noteName > 3 && noteContent > 10 && currentFolderID != null;
-        // const isEnabled = noteName.length > 3 && noteContent.length > 10 && currentFolderID !== "";
         const {noteNameIndicator, noteContentIndicator, noteFolderIDIndicator} = this.state;
         const isEnabled = noteNameIndicator && noteContentIndicator && noteFolderIDIndicator;
         let noteErrorMessage = this.state.noteErrorMessage;

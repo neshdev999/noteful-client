@@ -61,9 +61,6 @@ class AddFolder extends Component{
 
     handleSubmit = e => {
         e.preventDefault();
-        // const folder = {
-        //     name: e.target['folder-name'].value
-        // }
         const folder = {
             name: this.state.fname
         }
@@ -97,7 +94,6 @@ class AddFolder extends Component{
     }
 
     render(){
-       // const { fname } = this.state;
         const isEnabled = this.state.buttonEnable;
         const errorMessage = this.state.errorMessage;
         return(

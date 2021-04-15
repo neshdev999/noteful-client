@@ -7,7 +7,7 @@ describe(`NoteListNav component`, () => {
   it('renders a .NoteListNav by default', () => {
     const wrapper = shallow(<NoteListNav />)
     expect(toJson(wrapper)).toMatchSnapshot()
-  })
+  });
 
   // enzyme doesn't yet support React.createContext
   it.skip('renders a link in ul for each folder in array', () => {

@@ -21,12 +21,7 @@ class NoteListMain extends React.Component {
     const { folderId } = this.props.match.params;
     const { notes=[] } = this.context;
     const notesForFolder = getNotesForFolder(notes, folderId);
-
-    // Introduce JS React Error to test the AppError component is working or not
-  //   const  details = {
-  //     name: "nnamdi",
-  //     age: 27
-  // };
+    
     return (
       <section className='NoteListMain'>
         {/* {details} */}
@@ -60,7 +55,7 @@ class NoteListMain extends React.Component {
 
   NoteListMain.propTypes = {
       match : PropTypes.shape({
-          params: PropTypes.string
+          params: PropTypes.object
       }).isRequired
   };
 

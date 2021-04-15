@@ -44,7 +44,7 @@ class NotePageNav extends React.Component {
 
 NotePageNav.propTypes = {
   match : PropTypes.shape({
-    params: PropTypes.string
+    params: PropTypes.object
   }).isRequired,
   history: PropTypes.shape({
     goBack: PropTypes.func.isRequired

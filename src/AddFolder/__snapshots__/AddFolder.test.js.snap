@@ -21,13 +21,19 @@ exports[`AddItemForm component renders the complete form 1`] = `
       <input
         id="folder-name-input"
         name="folder-name"
+        onChange={[Function]}
         type="text"
+        value=""
+      />
+      <ValidationError
+        message="You must enter a folder title"
       />
     </div>
     <div
       className="buttons"
     >
       <button
+        disabled={true}
         type="submit"
       >
         Add folder

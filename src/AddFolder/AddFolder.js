@@ -121,7 +121,10 @@ class AddFolder extends Component{
 AddFolder.propTypes = {
     history : PropTypes.shape({
         push: PropTypes.func.isRequired
-    }).isRequired
+    }).isRequired,
+    name: PropTypes.string,
+    id: PropTypes.string,
+    onChange: PropTypes.func
 };
 
 export default AddFolder;

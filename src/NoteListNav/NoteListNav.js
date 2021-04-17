@@ -5,7 +5,7 @@ import CircleButton from '../CircleButton/CircleButton';
 import { countNotesForFolder } from '../notes-helper';
 import './NoteListNav.css';
 import NoteContext from '../NoteContext';
-
+import PropTypes from 'prop-types';
 
 class NoteListNav extends React.Component {
     static contextType = NoteContext;
@@ -45,4 +45,15 @@ class NoteListNav extends React.Component {
     )
     }
 }
+
+NoteListNav.propTypes = {
+  tag : PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]),
+  to : PropTypes.string,
+  type: PropTypes.string,
+  className: PropTypes.string
+};
+
 export default NoteListNav;

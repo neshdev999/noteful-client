@@ -11,6 +11,7 @@ import AddFolder from '../AddFolder/AddFolder';
 import config from '../config';
 import './App.css';
 import NoteContext from '../NoteContext';
+import PropTypes from 'prop-types';
 
 
 
@@ -148,5 +149,19 @@ class App extends Component {
         );
     }
 }
+
+App.propTypes = {
+    match : PropTypes.shape({
+        params: PropTypes.object
+    }),
+    onDeleteNote:  PropTypes.func,
+    id: PropTypes.string,
+    name: PropTypes.string,
+    modified: PropTypes.string,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }),
+    onChange: PropTypes.func
+};
 
 export default App;

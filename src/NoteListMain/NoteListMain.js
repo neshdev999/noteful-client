@@ -56,7 +56,11 @@ class NoteListMain extends React.Component {
   NoteListMain.propTypes = {
       match : PropTypes.shape({
           params: PropTypes.object
-      }).isRequired
+      }).isRequired,
+      onDeleteNote:  PropTypes.func,
+      id: PropTypes.string,
+      name: PropTypes.string,
+      modified: PropTypes.string 
   };
 
   export default NoteListMain;

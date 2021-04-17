@@ -227,7 +227,10 @@ class AddNote extends Component{
 AddNote.propTypes = {
     history: PropTypes.shape({
         push: PropTypes.func.isRequired
-    }).isRequired
+    }).isRequired,
+    name: PropTypes.string,
+    id: PropTypes.string,
+    onChange: PropTypes.func
 };
 
 export default AddNote;

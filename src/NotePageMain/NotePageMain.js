@@ -47,7 +47,11 @@ NotePageMain.propTypes = {
     }).isRequired,
     history: PropTypes.shape({
       push: PropTypes.func.isRequired
-    })
+    }),
+    id: PropTypes.string,
+    name: PropTypes.string,
+    modified: PropTypes.string,
+    onDeleteNote: PropTypes.func
 };
 
   export default NotePageMain;

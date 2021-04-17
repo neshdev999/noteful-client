@@ -38,7 +38,8 @@ class AppError extends React.Component{
 }
 
 AppError.propTypes = {
-  children: PropTypes.node.isRequired
+  // children: PropTypes.node.isRequired
+  children: PropTypes.element.isRequired
 }
 
 export default AppError;

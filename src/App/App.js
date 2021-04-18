@@ -12,6 +12,7 @@ import config from '../config';
 import './App.css';
 import NoteContext from '../NoteContext';
 import PropTypes from 'prop-types';
+import AppError from '../AppError/AppError';
 
 
 
@@ -20,7 +21,7 @@ class App extends Component {
         notes: [],
         folders: [],
         hasError: false,
-        errorText: ""
+        errorMessage: ""
     };
 
     componentDidMount() {
@@ -44,10 +45,11 @@ class App extends Component {
                 this.setState({
                     hasError: true,
                     errorMessage: {error}                     
-                }, 
-                ()=>{
-                    throw new Error('A server error has occured 🙃!' + this.state.errorMessage.error);
+                //}, 
+                // ()=>{
+                //     throw new Error('A server error has occured 🙃!' + this.state.errorMessage.error);
                 });
+
             });            
     }
 
@@ -143,7 +145,9 @@ class App extends Component {
                             <FontAwesomeIcon icon="check-double" />
                         </h1>
                     </header>
-                        <main className="App__main">{this.renderMainRoutes()}</main>
+                    <AppError>           
+                    {this.state.errorMessage.length === 0 ? <main className="App__main">{this.renderMainRoutes()}</main> : "Server data is not available"}   
+                    </AppError>                     
                 </div>
             </NoteContext.Provider>
         );

@@ -14,10 +14,10 @@ describe(`CircleButton component`, () => {
   it('renders a button.CircleButton by default', () => {
     const wrapper = shallow(<CircleButton />)
     expect(toJson(wrapper)).toMatchSnapshot()
-  });
+  })
 
   it('renders the circle button from props', () => {
     const wrapper = shallow(<CircleButton {...props} />)
     expect(toJson(wrapper)).toMatchSnapshot()
-  });
-});
+  })
+})

@@ -8,29 +8,29 @@
 }
 
 .App__nav {
-    background-color: #0b1b32;
-    color: #fff;
+    background-color: #5b5e63;
+    color: rgb(66, 22, 228);
     grid-area: sidebar;
     height: 100vh;
     overflow: auto;
 }
 
 .App__header {
-    background-color: #0b1f3a;
-    color: #bdbdbd;
+    background-color: #000000be;
+    color: #e3d8f0a9;
     font-family: var(--custom-font);
     grid-area: header;
     padding-left: 16px;
     padding-top: 32px;
-    text-shadow: 2px 1px 2px black;
+    text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.479);
 }
 
 .App__header a {
-    color: #bdbdbd;
+    color: #fcfcfc;
 }
 
 .App__main {
-    background-color: #102541;
+    background-color: #d2d6db;
     grid-area: main;
     height: calc(100vh - 120px);
     overflow: auto;
